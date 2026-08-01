@@ -1,0 +1,44 @@
+:root {
+  --text: #4a3b32;
+  --text-h: #2c2520;
+  --bg: #fcfbf7; /* 👈 קובע את הרקע לכל האפליקציה לצבע שמנת יוקרתי */
+  --border: #e8e2d5;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: serif; /* גופן סריף יוקרתי לצימרים */
+
+  font: 18px/145% var(--sans);
+  color-scheme: light; /* 👈 מבטל כפייה של דארק מוד של הדפדפן */
+  color: var(--text);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* #root רחב על 100% מהמסך ללא גבולות דחוסים */
+#root {
+  width: 100%; /* 👈 עכשיו האפליקציה מתפרשת מקצה לקצה! */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+p {
+  margin: 0;
+}

@@ -1,0 +1,200 @@
+/* העמוד הראשי */
+.details-page {
+  background-color: #fcfbf7;
+  min-height: 100vh;
+  width: 100%;
+  font-family: serif;
+  color: #333;
+  padding-bottom: 60px;
+}
+
+/* 1. Hero Cover Banner */
+.details-hero {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.details-hero-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 25px 60px;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.details-hero-title {
+  font-size: 38px;
+  color: #4a3b32;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* Container מרכזי רחב */
+.details-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* 2. Amenities Bar - סרגל אייקונים בשורה אופקית */
+.amenities-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e8e2d5;
+  margin-bottom: 40px;
+}
+
+.amenity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #6a5a4d;
+}
+
+.amenity-icon {
+  font-size: 26px;
+}
+
+/* 3. Layout Grid - חלוקה לשני טורים (גלריה משמאל, טקסט מימין) */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .main-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4. גלריית תמונות */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  width: 100%;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* 5. אזור תיאור וטופס */
+.description-section {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.7;
+}
+
+.description-title {
+  font-size: 28px;
+  color: #8c7355;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.description-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.price-tag {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5a735b;
+  margin-bottom: 25px;
+}
+
+/* 6. כרטיס הזמנה */
+.booking-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #e8e2d5;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.booking-title {
+  font-size: 20px;
+  color: #4a3b32;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f0eae1;
+  padding-bottom: 8px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #666;
+}
+
+.date-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+  background-color: #fff;
+  color: #333;
+}
+
+.reserve-btn {
+  padding: 14px;
+  background-color: #8c7355;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.reserve-btn:hover {
+  background-color: #735e45;
+}
