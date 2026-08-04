@@ -1,11 +1,10 @@
 .navbar {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e8e2d5;
-  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: serif;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -14,55 +13,79 @@
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 20px;
-  font-size: 14px;
-  color: #666;
+  gap: 15px;
 }
 
-.phone-link {
-  color: #4a3b32;
+.nav-btn {
+  background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+  color: #2c3e50;
   text-decoration: none;
   font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #dcdde1;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(46, 204, 113, 0.3);
+  border-color: transparent;
 }
 
 .nav-logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: #4a3b32;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #2ecc71;
   text-decoration: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .nav-right {
   display: flex;
-  align-items: center;
   gap: 25px;
+  align-items: center;
 }
 
 .nav-link {
-  color: #4a3b32;
   text-decoration: none;
-  font-size: 15px;
-  transition: color 0.2s;
+  color: #34495e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
 .nav-link:hover {
-  color: #8c7355;
+  color: #2ecc71;
 }
 
 .logout-btn {
-  background-color: transparent;
-  border: 1px solid #8c7355;
-  color: #8c7355;
-  padding: 6px 16px;
-  border-radius: 4px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
   cursor: pointer;
-  font-family: serif;
-  transition: all 0.2s;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
 .logout-btn:hover {
   background-color: #8c7355;
   color: #fff;
+}
+
+.nav-welcome {
+  color: #34495e;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  opacity: 0.9;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
 }

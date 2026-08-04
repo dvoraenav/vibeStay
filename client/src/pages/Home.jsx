@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getImageUrl } from '../api/apiClient';
 import './Home.css'; // 👈 יבוא קובץ ה-CSS
 
 export default function Home() {
@@ -40,7 +41,7 @@ export default function Home() {
             >
               <div className="card-image-wrapper">
                 <img
-                  src={cabin.primary_image || 'https://via.placeholder.com/400x250'}
+                  src={getImageUrl(cabin.images?.[0])}
                   alt={cabin.name}
                   className="card-image"
                 />

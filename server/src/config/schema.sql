@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS vibestay_db;
 CREATE DATABASE IF NOT EXISTS vibestay_db;
 USE vibestay_db;
 
@@ -50,9 +51,21 @@ CREATE TABLE IF NOT EXISTS reviews (
     user_id VARCHAR(36) NOT NULL,
     rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
     comment TEXT,
+    admin_reply TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cabin_id) REFERENCES cabins(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+););
+
+-- 6. טבלת הודעות צור קשר
+CREATE TABLE IF NOT EXISTS contact_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    phone VARCHAR(50),
+    message TEXT NOT NULL,
+    status ENUM('unread', 'read') DEFAULT 'unread',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- ----------------------------------------------------
@@ -79,12 +92,15 @@ VALUES
 
 -- הכנסת תמונות לגלריה עבור הצימר הראשון (Piccolo)
 INSERT INTO cabin_images (cabin_id, image_url) VALUES
-('c1a2b3c4-1111-2222-3333-444455556666', 'https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=800'),
-('c1a2b3c4-1111-2222-3333-444455556666', 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800'),
-('c1a2b3c4-1111-2222-3333-444455556666', 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800'),
-('c1a2b3c4-1111-2222-3333-444455556666', 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800');
+('c1a2b3c4-1111-2222-3333-444455556666', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/45d05aa4c1b248-hq-scale-2_00x-scaled.jpg'),
+('c1a2b3c4-1111-2222-3333-444455556666', 'https://zimmer-amirim.co.il/wp-content/uploads/2024/06/piccolo--scaled.jpg'),
+('c1a2b3c4-1111-2222-3333-444455556666', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/915d05aa2952aa6-hq-scale-2_00x-scaled.jpg'),
+('c1a2b3c4-1111-2222-3333-444455556666', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/925d05b2543469b-hq-scale-2_00x.jpg');
 
 -- הכנסת תמונות לגלריה עבור הצימר השני (Monroe)
 INSERT INTO cabin_images (cabin_id, image_url) VALUES
-('c2b3c4d5-2222-3333-4444-555566667777', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800'),
-('c2b3c4d5-2222-3333-4444-555566667777', 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800');
+('c2b3c4d5-2222-3333-4444-555566667777', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/%D7%9E%D7%95%D7%A0%D7%A8%D7%95.jpg'),
+('c2b3c4d5-2222-3333-4444-555566667777', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/385d05aa85ad5af-hq-scale-2_00x-1-scaled.jpg'),
+('c2b3c4d5-2222-3333-4444-555566667777', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/155d05b270577e4-hq-scale-2_00x-1.jpg'),
+('c2b3c4d5-2222-3333-4444-555566667777', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/55d05b2798473e-hq-scale-2_00x-1.jpg'),
+('c2b3c4d5-2222-3333-4444-555566667777', 'https://zimmer-amirim.co.il/wp-content/uploads/2023/11/515d05aaa28a026-hq-scale-2_00x-1-scaled.jpg');

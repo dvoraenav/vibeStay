@@ -20,7 +20,23 @@ export default function Register() {
 
       if (!res.ok) throw new Error(data.message || 'Registration failed');
 
-      navigate('/login');
+      // Auto login after successful registration
+      const loginRes = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const loginData = await loginRes.json();
+      
+      if (loginRes.ok) {
+        localStorage.setItem('token', loginData.token);
+        localStorage.setItem('user', JSON.stringify(loginData.user));
+        // Force reload to update Navbar state if needed, or simply navigate
+        window.location.href = '/'; 
+      } else {
+        navigate('/login');
+      }
+
     } catch (err) {
       setError(err.message);
     }

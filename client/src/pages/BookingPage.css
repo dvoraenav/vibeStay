@@ -1,0 +1,138 @@
+.booking-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+  background-color: #f0f4f8;
+}
+
+.booking-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+}
+
+.booking-card h1 {
+  color: #2c3e50;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.cabin-location {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.dates-selection {
+  display: flex;
+  gap: 20px;
+}
+
+.date-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-input label {
+  font-weight: bold;
+  color: #34495e;
+}
+
+.date-input input {
+  padding: 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.date-input input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.price-summary {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px dashed #3498db;
+}
+
+.price-summary h3 {
+  color: #2c3e50;
+  font-size: 24px;
+  margin: 0;
+}
+
+.price-note {
+  color: #95a5a6;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.payment-simulation {
+  background-color: #fdfbf7;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #fae5d3;
+}
+
+.payment-simulation h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #d35400;
+}
+
+.payment-simulation input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.credit-card-details {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-book-now {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-book-now:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
+}

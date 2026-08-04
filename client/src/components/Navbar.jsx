@@ -4,6 +4,8 @@ import './Navbar.css';
 export default function Navbar() {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+  const userStr = localStorage.getItem('user');
+  const user = userStr ? JSON.parse(userStr) : null;
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -14,7 +16,8 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-left">
-        <span>📞 <a href="tel:0549481195" className="phone-link">+972-54-9481195</a></span>
+        <Link to="/" className="nav-btn">ראשי</Link>
+        <Link to="/contact" className="nav-btn">יצירת קשר</Link>
       </div>
 
       <Link to="/" className="nav-logo">
@@ -24,13 +27,17 @@ export default function Navbar() {
       <div className="nav-right">
         {token ? (
           <>
-            <Link to="/" className="nav-link">Suites</Link>
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
+            {user && <span className="nav-welcome">ברוך הבא, {user.fullName}</span>}
+            <Link to="/profile" className="nav-link">אזור אישי</Link>
+            {user && user.role === 'admin' && (
+              <Link to="/admin" className="nav-link">ניהול</Link>
+            )}
+            <button onClick={handleLogout} className="logout-btn">התנתק</button>
           </>
         ) : (
           <>
-            <Link to="/login" className="nav-link">Login</Link>
-            <Link to="/register" className="nav-link">Register</Link>
+            <Link to="/login" className="nav-link">התחברות</Link>
+            <Link to="/register" className="nav-link">הרשמה</Link>
           </>
         )}
       </div>

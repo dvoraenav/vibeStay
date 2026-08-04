@@ -9,23 +9,22 @@ const authenticateToken = (req, res, next) => {
     return res.status(401).json({ message: 'אינך מחובר, נדרש Token' });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret_key', (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Token לא תקין או פג תוקף' });
     }
-    // ב-Payload יש לנו רק userId ו-roleId בלבד (אבטחה לפי הנחיות המרצה)
     req.user = user;
     next();
   });
 };
 
 // בדיקת הרשאת אדמין
-const requireAdmin = (req, res, next) => {
-  if (req.user && req.user.roleId === 2) { // 2 = admin
+const isAdmin = (req, res, next) => {
+  if (req.user && req.user.role === 'admin') {
     next();
   } else {
     return res.status(403).json({ message: 'גישה נדחתה: נדרשות הרשאות מנהל' });
   }
 };
 
-module.exports = { authenticateToken, requireAdmin };
+module.exports = { authenticateToken, isAdmin };
