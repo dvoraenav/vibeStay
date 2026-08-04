@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS reviews (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cabin_id) REFERENCES cabins(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-););
+);
 
 -- 6. טבלת הודעות צור קשר
 CREATE TABLE IF NOT EXISTS contact_messages (
